@@ -39,7 +39,9 @@ CREATE TABLE student1 as select * from student;
 
 -- COMMAND ----------
 
-use alp_prasad;CREATE EXTERNAL TABLE student2 (id INT, name STRING, age INT) USING CSV LOCATION '/mnt/alpdb/test1/DB1/';
+use alp_prasad;
+DROP TABLE STUDENT2;
+CREATE EXTERNAL TABLE student2 (id INT, name STRING, age INT) USING CSV LOCATION '/mnt/alpdb/test1/DB1/STUDENT2';
 
 -- COMMAND ----------
 
