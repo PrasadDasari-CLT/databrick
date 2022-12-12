@@ -180,3 +180,39 @@ DESCRIBE DETAIL ALP_PRASAD.STUDENT2;
 -- COMMAND ----------
 
 VACUUM ALP_PRASAD.STUDENT1 DRY RUN;
+
+-- COMMAND ----------
+
+use alp_prasad;
+DROP TABLE STUDENT2;
+CREATE EXTERNAL TABLE student2 (id INT, name STRING, age INT) USING CSV LOCATION '/mnt/alpdb/test1/DB1/STUDENT2';
+
+-- COMMAND ----------
+
+INSERT INTO ALP_PRASAD.student2 SELECT * FROM ALP_PRASAD.student1;
+
+-- COMMAND ----------
+
+use alp_prasad;
+
+CREATE TABLE student5 (id INT, name STRING, age INT);
+
+-- COMMAND ----------
+
+INSERT INTO ALP_PRASAD.student5 SELECT * FROM ALP_PRASAD.student1;
+
+-- COMMAND ----------
+
+update student5 set age = age+10 where id > 3;
+
+-- COMMAND ----------
+
+describe history student5;
+
+-- COMMAND ----------
+
+delete from student5 where age > 30
+
+-- COMMAND ----------
+
+SELECT * FROM STUDENT5;
