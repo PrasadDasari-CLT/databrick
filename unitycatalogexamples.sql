@@ -131,5 +131,53 @@ CREATE TABLE alp_dasari.yeshwin1.student (id INT, name STRING, age INT) ;
 
 -- COMMAND ----------
 
+CREATE TABLE alp_dasari.yeshwin1.studentexternal (id INT, name STRING, age INT) LOCATION 'abfss://alp-silver@adlsalpeastusstorage001.dfs.core.windows.net/test1' ;
+
+-- COMMAND ----------
+
+INSERT INTO alp_dasari.yeshwin1.studentexternal VALUES   (5,'Prassd',  40), (6,'Dasari',  42);
+
+-- COMMAND ----------
+
+CREATE TABLE alp_dasari.yeshwin1.studentexternalcsv (id INT, name STRING, age INT) USING CSV LOCATION 'abfss://alp-silver@adlsalpeastusstorage001.dfs.core.windows.net/studentcsv' ;
+
+-- COMMAND ----------
+
+INSERT INTO alp_dasari.yeshwin1.studentexternalcsv VALUES   (5,'Prassd',  40), (6,'Dasari',  42);
+
+-- COMMAND ----------
+
+SELECT * FROM alp_dasari.yeshwin1.studentexternalcsv;
+
+-- COMMAND ----------
+
+DESCRIBE EXTENDED alp_dasari.yeshwin1.studentexternal ;
+
+-- COMMAND ----------
+
 INSERT INTO alp_dasari.yeshwin1.student VALUES   (5,'Prassd',  40), (6,'Dasari',  42);
 
+
+-- COMMAND ----------
+
+show CATALOGS;
+
+-- COMMAND ----------
+
+USE CATALOG alp_dasari;
+
+-- COMMAND ----------
+
+SHOW GRANTS ON CATALOG alp_dasari;
+
+-- COMMAND ----------
+
+GRANT USAGE ON SCHEMA alp_dasari.yeshwin1 TO AZ-ALP-DEVELOPERS;
+
+-- COMMAND ----------
+
+SHOW GRANTS ON yeshwin1.student;
+
+-- COMMAND ----------
+
+show current schema;
