@@ -34,7 +34,7 @@ SHOW GRANTS `shallu.kolla@gmail.com` ON SCHEMA alp_dasari.SHAILAJA;
 
 -- COMMAND ----------
 
-SHOW CURRENT SCHEMA;
+--SHOW CURRENT SCHEMA;
 USE CATALOG ALP_DASARI;
 
 -- COMMAND ----------
@@ -75,6 +75,7 @@ GRANT EXECUTE ON FUNCTION alp_dasari.shailaja.mask TO `AZ-ALP-DEVELOPERS`;
 
 -- COMMAND ----------
 
+
 SHOW EXTERNAL LOCATIONS;
 
 -- COMMAND ----------
@@ -88,3 +89,49 @@ DESCRIBE EXTENDED DEPARTMENT;
 -- COMMAND ----------
 
 CREATE TABLE student (id INT, name STRING, age INT) USING CSV;
+
+-- COMMAND ----------
+
+SHOW GRANTS `shallu.kolla@gmail.com` ON SCHEMA alp_dasari.SHAILAJA;
+
+-- COMMAND ----------
+
+GRANT USAGE ON SCHEMA alp_dasari.shailaja TO `AZ-CRP-DEVELOPERS`;
+
+-- COMMAND ----------
+
+GRANT USAGE ON CATALOG alp_dasari TO `AZ-CRP-DEVELOPERS`;
+
+-- COMMAND ----------
+
+show catalogs;
+USE CATALOG alp_dasari;
+
+-- COMMAND ----------
+
+SHOW DATABASES;
+
+-- COMMAND ----------
+
+USE DATABASE SHAILAJA;
+SHOW TABLES;
+
+-- COMMAND ----------
+
+SELECT * FROM VW_DEPARTMENT;
+
+-- COMMAND ----------
+
+GRANT SELECT ON VIEW  alp_dasari.shailaja.vw_department TO `AZ-CRP-DEVELOPERS`;
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC spark.sql("SHOW CATALOGS").show()
+-- MAGIC spark.sql("USE CATALOG alp_dasari")
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC spark.sql("USE SCHEMA shailaja")
+-- MAGIC spark.sql("select * from vw_department").show()
