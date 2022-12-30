@@ -181,3 +181,70 @@ SHOW GRANTS ON yeshwin1.student;
 -- COMMAND ----------
 
 show current schema;
+
+-- COMMAND ----------
+
+create database alp_dasari.managedexternal MANAGED LOCATION 'abfss://alp-gold@adlsalpeastusstorage001.dfs.core.windows.net/test1/managedexternal'; 
+
+
+-- COMMAND ----------
+
+CREATE TABLE alp_dasari.managedexternal.student (id INT, name STRING, age INT) PARTITIONED BY(id) ;
+
+
+-- COMMAND ----------
+
+INSERT INTO alp_dasari.managedexternal.student  VALUES   (18,'Prassd',  40), (2,'Dasari',  41);
+INSERT INTO alp_dasari.managedexternal.student  VALUES   (19,'xPdrassd',  43), (4,'xDasari',  44);
+
+-- COMMAND ----------
+
+OPTIMIZE alp_dasari.managedexternal.student;
+
+-- COMMAND ----------
+
+OPTIMIZE alp_dasari.managedexternal.student  ZORDER BY(AGE) ;
+
+-- COMMAND ----------
+
+VACUUM alp_dasari.managedexternal.student  RETAIN 0 HOURS ;
+
+-- COMMAND ----------
+
+CREATE TABLE alp_dasari.managedexternal.studentexternal (id INT, name STRING, age INT) LOCATION 'abfss://alp-silver@adlsalpeastusstorage001.dfs.core.windows.net/studentexternal'  PARTITIONED BY(ID) ;
+
+-- COMMAND ----------
+
+INSERT INTO alp_dasari.managedexternal.studentexternal  VALUES   (5,'Prassd',  40), (6,'Dasari',  42);
+
+-- COMMAND ----------
+
+describe formatted alp_dasari.managedexternal.studentexternal;
+
+-- COMMAND ----------
+
+describe formatted alp_dasari.managedexternal.student;
+
+-- COMMAND ----------
+
+drop table alp_dasari.managedexternal.studentexternal;
+
+-- COMMAND ----------
+
+drop table alp_dasari.managedexternal.student;
+
+-- COMMAND ----------
+
+select * from alp_dasari.managedexternal.studentexternal;
+
+-- COMMAND ----------
+
+SELECT * FROM alp_dasari.managedexternal.student;
+
+-- COMMAND ----------
+
+DELETE FROM alp_dasari.managedexternal.studentexternal;
+
+-- COMMAND ----------
+
+DROP DATABASE alp_dasari.managedexternal;

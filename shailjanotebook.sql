@@ -20,6 +20,7 @@ show tables;
 
 -- COMMAND ----------
 
+drop table department;
 CREATE TABLE department
 (
   deptcode   INT,
@@ -38,7 +39,13 @@ INSERT INTO department VALUES
 
 -- COMMAND ----------
 
+describe formatted department;
+
 select * from department;
+
+-- COMMAND ----------
+
+OPTIMIZE department  ZORDER BY (deptcode)
 
 -- COMMAND ----------
 
@@ -87,3 +94,12 @@ show tables;
 -- COMMAND ----------
 
 DESCRIBE EXTENDED DEPARTMENT;
+
+-- COMMAND ----------
+
+-- MAGIC %scala 
+-- MAGIC print("hellow world!!!!!")
+
+-- COMMAND ----------
+
+
