@@ -135,3 +135,58 @@ GRANT SELECT ON VIEW  alp_dasari.shailaja.vw_department TO `AZ-CRP-DEVELOPERS`;
 -- MAGIC %python
 -- MAGIC spark.sql("USE SCHEMA shailaja")
 -- MAGIC spark.sql("select * from vw_department").show()
+-- MAGIC spark.sql("select * from vw_department").show()
+
+-- COMMAND ----------
+
+USE CATALOG alp_dasari;
+show schemas;
+use shailaja;
+
+-- COMMAND ----------
+
+SHOW GRANTS `AZ-ALP-DEVELOPERS` ON SCHEMA alp_dasari.shailaja;
+
+-- COMMAND ----------
+
+SHOW GRANTS `prasad.d393@outlook.com` ON SCHEMA alp_dasari.shailaja;
+
+-- COMMAND ----------
+
+show databases;
+
+-- COMMAND ----------
+
+SHOW GRANTS ON SCHEMA alp_dasari.managedexternal;
+
+-- COMMAND ----------
+
+GRANT USAGE ON SCHEMA alp_dasari.managedexternal TO `AZ-ALP-DEVELOPERS`;
+GRANT SELECT ON SCHEMA alp_dasari.managedexternal TO `AZ-ALP-DEVELOPERS`;
+GRANT CREATE ON SCHEMA alp_dasari.managedexternal TO `AZ-ALP-DEVELOPERS`;
+
+
+
+-- COMMAND ----------
+
+GRANT MODIFY ON SCHEMA alp_dasari.managedexternal TO `AZ-ALP-DEVELOPERS`;
+
+-- COMMAND ----------
+
+use schema managedexternal;
+show tables;
+select * from testdasari;
+
+
+-- COMMAND ----------
+
+drop table testdasari;
+
+-- COMMAND ----------
+
+show tables;
+
+-- COMMAND ----------
+
+select * from student;
+select * from studentexternal;

@@ -27,3 +27,11 @@ select * from alp_dasari.managedexternal.studentexternal;
 -- COMMAND ----------
 
 select * from alp_dasari.managedexternal.student;
+
+-- COMMAND ----------
+
+CREATE TABLE alp_dasari.managedexternal.studentdeletetest as select * from alp_dasari.managedexternal.studentexternal;
+
+-- COMMAND ----------
+
+select * from alp_dasari.managedexternal.studentdeletetest

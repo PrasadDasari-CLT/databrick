@@ -248,3 +248,27 @@ DELETE FROM alp_dasari.managedexternal.studentexternal;
 -- COMMAND ----------
 
 DROP DATABASE alp_dasari.managedexternal;
+
+-- COMMAND ----------
+
+CREATE TABLE alp_dasari.managedexternal.studentexternalcsv (id INT, name STRING, age INT) USING csv LOCATION 'abfss://alp-silver@adlsalpeastusstorage001.dfs.core.windows.net/studentexternalcsv'  PARTITIONED BY(ID) ;
+
+-- COMMAND ----------
+
+DESCRIBE TABLE FORMATTED alp_dasari.managedexternal.studentexternalcsv;
+
+-- COMMAND ----------
+
+INSERT INTO alp_dasari.managedexternal.studentexternalcsv  VALUES   ('Prassd',  40,3), ('Dasari',  42,5);
+
+-- COMMAND ----------
+
+select * from alp_dasari.managedexternal.studentexternalcsv;
+
+-- COMMAND ----------
+
+drop table alp_dasari.managedexternal.studentexternalcsv;
+
+-- COMMAND ----------
+
+
