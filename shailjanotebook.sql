@@ -20,6 +20,7 @@ show tables;
 
 -- COMMAND ----------
 
+drop table department;
 CREATE TABLE department
 (
   deptcode   INT,
@@ -38,7 +39,13 @@ INSERT INTO department VALUES
 
 -- COMMAND ----------
 
+describe formatted department;
+
 select * from department;
+
+-- COMMAND ----------
+
+OPTIMIZE department  ZORDER BY (deptcode)
 
 -- COMMAND ----------
 
@@ -87,3 +94,65 @@ show tables;
 -- COMMAND ----------
 
 DESCRIBE EXTENDED DEPARTMENT;
+
+-- COMMAND ----------
+
+-- MAGIC %scala 
+-- MAGIC print("hellow world!!!!!")
+
+-- COMMAND ----------
+
+
+
+-- COMMAND ----------
+
+SHOW TABLES;
+
+-- COMMAND ----------
+
+show databases;
+
+-- COMMAND ----------
+
+use managedexternal;
+show tables;
+
+
+
+-- COMMAND ----------
+
+SELECT * FROM studentdeletetest;
+
+-- COMMAND ----------
+
+DELETE FROM studentdeletetest WHERE id < 3;
+
+-- COMMAND ----------
+
+create table testdasari as select * from studentdeletetest;
+
+-- COMMAND ----------
+
+select * from testdasari;
+
+-- COMMAND ----------
+
+
+
+-- COMMAND ----------
+
+ALTER TABLE testdasari OWNER TO `prasad.d393@outlook.com`;
+
+-- COMMAND ----------
+
+drop table testdasari;
+
+-- COMMAND ----------
+
+SHOW CURRENT SCHEMA;
+SHOW TABLES;
+SELECT * FROM STUDENT;
+DELETE FROM STUDENT WHERE ID=19;
+SELECT * FROM STUDENT;
+SHOW TABLES;
+DROP TABLE studentdeletetest;
