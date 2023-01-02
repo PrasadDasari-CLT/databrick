@@ -86,6 +86,12 @@ SELECT * FROM cloud_files_state('abfss://alp-silver@adlsalpeastusstorage001.dfs.
 
 -- COMMAND ----------
 
+-- MAGIC %sh
+-- MAGIC nslookup databrickspetest1.dfs.core.windows.net
+-- MAGIC nslookup adlsalpeastusstorage001.blob.core.windows.net
+
+-- COMMAND ----------
+
 USE CATALOG alp_dasari;
 
 -- COMMAND ----------
@@ -114,3 +120,8 @@ select * from alp_dasari.managedexternal.privatestudent;
 -- COMMAND ----------
 
 describe formatted  alp_dasari.managedexternal.privatestudent;
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC print("hello");
